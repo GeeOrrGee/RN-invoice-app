@@ -13,4 +13,21 @@ export const colors = {
   whiteBg: "#f8f8f8",
 };
 
+export default {
+  light: {
+    background: '#FFFFFF',
+    text: '#000000',
+    buttonBackground: '#3498db',
+    buttonTextColor: '#FFFFFF',
+    border: '#bdc3c7',
+  },
+  dark: {
+    background: '#2c3e50',
+    text: '#FFFFFF',
+    buttonBackground: '#2980b9',
+    buttonTextColor: '#FFFFFF',
+    border: '#34495e',
+  }
+};
+
 //TODO Refactor this as per theme mode color palette
