@@ -1,4 +1,4 @@
-export const colors = {
+export const palette = {
   primary: "#9277ff",
   secondary: "#EC5757",
   primaryLight: "#7c5dfa",
@@ -11,23 +11,34 @@ export const colors = {
   black100: "#0c0e16",
   black200: "#141625",
   whiteBg: "#f8f8f8",
-};
+  };
 
-export default {
+export const colors = {
   light: {
-    background: '#FFFFFF',
-    text: '#000000',
-    buttonBackground: '#3498db',
-    buttonTextColor: '#FFFFFF',
-    border: '#bdc3c7',
+    ...palette,
+    background: "#FFFFFF",
+    text: "#000000",
+    buttonBackground: "#3498db",
+    buttonTextColor: "#FFFFFF",
+    border: "#bdc3c7",
   },
   dark: {
-    background: '#2c3e50',
-    text: '#FFFFFF',
-    buttonBackground: '#2980b9',
-    buttonTextColor: '#FFFFFF',
-    border: '#34495e',
-  }
+    ...palette,
+    background: "#2c3e50",
+    text: "#FFFFFF",
+    buttonBackground: "#2980b9",
+    buttonTextColor: "#FFFFFF",
+    border: "#34495e",
+  },
+};
+
+export const components = {
+  Button: {
+    buttonStyle: {
+      paddingHorizontal: 18,
+      paddingVertical: 10,
+    },
+  },
 };
 
 //TODO Refactor this as per theme mode color palette
