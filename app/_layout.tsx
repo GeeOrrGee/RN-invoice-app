@@ -3,7 +3,7 @@ import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 import { useColorScheme } from "react-native";
-import { colors } from "./theme";
+import { colors, components } from "./theme";
 import { ThemeProvider, createTheme } from "@rneui/themed";
 
 export {
@@ -17,9 +17,10 @@ export const unstable_settings = {
 };
 //TODO organize colors as per theme mode
 const theme = createTheme({
-  lightColors: colors,
-  darkColors: colors,
+  lightColors: colors.light,
+  darkColors: colors.dark,
   mode: "light",
+  components,
 });
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
