@@ -2,8 +2,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
-import { useColorScheme } from "react-native";
-import { colors, components } from "./theme";
+import { colors, components, palette } from "./theme";
 import { ThemeProvider, createTheme } from "@rneui/themed";
 
 export {
@@ -51,11 +50,17 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme();
+  const screenConfig = {
+    headerStyle: {
+      backgroundColor: palette.darkBlue,
+    },
+    headerTintColor: palette.primaryLight,
+    headerTitle: "Universal header in the app",
+  };
   return (
     <ThemeProvider theme={theme}>
-      <Stack>
-        <Stack.Screen name="(homepage)" options={{ headerShown: false }} />
+      <Stack screenOptions={screenConfig}>
+        <Stack.Screen name="(homepage)" />
         <Stack.Screen name="modal" options={{ presentation: "modal" }} />
       </Stack>
     </ThemeProvider>
