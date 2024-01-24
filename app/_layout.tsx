@@ -4,8 +4,8 @@ import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 import { colors, components, palette } from "./theme";
 import { ThemeProvider, createTheme } from "@rneui/themed";
-import { Image, ImageSourcePropType } from 'react-native';
-
+import Logo from "../components/Logo";
+import { View } from "../components/Themed";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -14,7 +14,7 @@ export {
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "(tabs)",
+  // initialRouteName: "modal",
 };
 //TODO organize colors as per theme mode
 const theme = createTheme({
@@ -51,32 +51,23 @@ export default function RootLayout() {
   return <RootLayoutNav />;
 }
 
-const Logo = ({ source, width, height }: { source: ImageSourcePropType; width: number; height: number }) => {
-  return (
-    <Image
-      source={source}
-      style={{ width: width, height: height }}
-    />
-  );
-};
-
-
 function RootLayoutNav() {
-  const imageSource = require('../assets/images/favicon.png') as ImageSourcePropType;
-  const LogoComponent = () => (
-    <Logo source={imageSource} width={30} height={30} />
-  );
   const screenConfig = {
     headerStyle: {
       backgroundColor: palette.darkBlue,
     },
     headerTintColor: palette.primaryLight,
-    headerTitle: LogoComponent
+    headerTitle: () => (
+      <View>
+        <Logo />
+      </View>
+    ),
   };
   return (
     <ThemeProvider theme={theme}>
-      <Stack screenOptions={screenConfig}>
-        <Stack.Screen name="(homepage)" />
+      <Stack screenOptions={screenConfig} initialRouteName="homepage">
+        <Stack.Screen name="homepage" />
+        <Stack.Screen name="[id]" />
         <Stack.Screen name="modal" options={{ presentation: "modal" }} />
       </Stack>
     </ThemeProvider>
